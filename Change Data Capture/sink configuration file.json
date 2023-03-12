@@ -1,0 +1,15 @@
+{
+    "name": "bigquery-sink",
+    "config": {
+      "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
+      "tasks.max": "1",
+      "topics": "postgresql.public.orders",
+      "sanitizeTopics": "true",
+      "autoUpdateSchemas": "true",
+      "schemaRetriever": "com.wepay.kafka.connect.bigquery.retrieve.IdentitySchemaRetriever",
+      "project": "dummy-surveillance-project",
+      "defaultDataset" : "demo",
+      "keyfile": "/key.json"
+      
+    }
+  }
