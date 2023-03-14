@@ -4,7 +4,7 @@
 
 #### Full Data Ingestion
 
-> You can read more here [Data Ingestion (Ful Data Ingestion)](https://medium.com/codex/data-ingestion-full-data-ingestion-78f0dad296e9)
+> You can read more here [Data Ingestion (Full Data Ingestion)](https://medium.com/codex/data-ingestion-full-data-ingestion-78f0dad296e9)
 
 #### Incrmental Data Ingestion
 
