@@ -8,7 +8,7 @@
 
 #### Incrmental Data Ingestion
 
-> You can read more here [Data Ingestion (Incremntal Data Ingestion)]
+> You can read more here [Data Ingestion (Incremental Data Ingestion)]
 
 #### Change Data Capture
 
