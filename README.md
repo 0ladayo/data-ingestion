@@ -8,7 +8,7 @@
 
 #### Incrmental Data Ingestion
 
-> You can read more here [Data Ingestion (Incremental Data Ingestion)]
+> You can read more here [Data Ingestion (Incremental Data Ingestion)](https://medium.com/codex/data-ingestion-incremental-data-ingestion-ee9bc8e1f865)
 
 #### Change Data Capture
 
