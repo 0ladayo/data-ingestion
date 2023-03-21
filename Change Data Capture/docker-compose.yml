@@ -82,14 +82,14 @@ services:
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
       CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
     volumes:
-      - ./service account key.json.json:/key.json
+      - ./service account key.json:/service account key.json
     command:
     - bash
     - -c
     - |
       confluent-hub install --no-prompt debezium/debezium-connector-postgresql:1.9.7
       confluent-hub install --no-prompt wepay/kafka-connect-bigquery:2.4.5
-      export GOOGLE_APPLICATION_CREDENTIALS=/key.json
+      export GOOGLE_APPLICATION_CREDENTIALS=/service account key.json
       /etc/confluent/docker/run &
       sleep infinity
 
