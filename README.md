@@ -12,4 +12,4 @@
 
 #### Change Data Capture
 
-> You can read more here [Data Ingestion (Change Data Capture)]
+> You can read more here [Data Ingestion (Change Data Capture)](https://medium.com/@Oladayo/data-ingestion-change-data-capture-ce8aaa594ff9) & [Data Ingestion (Change Data Capture Demonstration)](https://medium.com/codex/data-ingestion-change-data-capture-demonstration-5e1702a16b1)
