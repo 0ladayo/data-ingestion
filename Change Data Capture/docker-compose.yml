@@ -87,9 +87,12 @@ services:
     - bash
     - -c
     - |
-      confluent-hub install --no-prompt debezium/debezium-connector-postgresql:1.9.7 # downloads the Debezium PostgreSQL CDC Source Connector from confluent hub
-      confluent-hub install --no-prompt wepay/kafka-connect-bigquery:2.4.5 # downloads the Google BigQuery Sink Connector from confluent hub
-      export GOOGLE_APPLICATION_CREDENTIALS=/service account key.json # explicitly set the Google Application credentials to service account key.json in the connect container
+      # downloads the Debezium PostgreSQL CDC Source Connector from confluent hub
+      confluent-hub install --no-prompt debezium/debezium-connector-postgresql:1.9.7 
+      # downloads the Google BigQuery Sink Connector from confluent hub
+      confluent-hub install --no-prompt wepay/kafka-connect-bigquery:2.4.5
+      # explicitly set the Google Application credentials to service account key.json in the connect container
+      export GOOGLE_APPLICATION_CREDENTIALS=/service account key.json 
       /etc/confluent/docker/run &
       sleep infinity
 
