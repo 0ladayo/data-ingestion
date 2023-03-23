@@ -82,14 +82,14 @@ services:
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
       CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
     volumes:
-      - ./service account key.json:/service account key.json
+      - ./service account key.json:/service account key.json  # This mount the gcp project service account key into connect container
     command:
     - bash
     - -c
     - |
-      confluent-hub install --no-prompt debezium/debezium-connector-postgresql:1.9.7
-      confluent-hub install --no-prompt wepay/kafka-connect-bigquery:2.4.5
-      export GOOGLE_APPLICATION_CREDENTIALS=/service account key.json
+      confluent-hub install --no-prompt debezium/debezium-connector-postgresql:1.9.7 # downloads the Debezium PostgreSQL CDC Source Connector from confluent hub
+      confluent-hub install --no-prompt wepay/kafka-connect-bigquery:2.4.5 # downloads the Google BigQuery Sink Connector from confluent hub
+      export GOOGLE_APPLICATION_CREDENTIALS=/service account key.json # explicitly set the Google Application credentials to service account key.json in the connect container
       /etc/confluent/docker/run &
       sleep infinity
 
@@ -127,4 +127,4 @@ services:
     command:
     - "postgres"
     - "-c"
-    - "wal_level=logical"
+    - "wal_level=logical" # this set the write ahead logging level to logical which is needed to be able to read data from the logs. By default, it's always in replical level
