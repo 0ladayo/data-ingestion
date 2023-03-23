@@ -83,16 +83,15 @@ services:
       CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
     volumes:
       - ./service account key.json:/service account key.json  # This mount the gcp project service account key into connect container
+    # line 92 and 93 downloads the Debezium PostgreSQL CDC Source Connector and Google BigQUery Sink Connector respectively from confluent hub
+    # line 94 explicitly set the Google Application Credentials to the service  key in the connect container
     command:
     - bash
     - -c
     - |
-      # downloads the Debezium PostgreSQL CDC Source Connector from confluent hub
-      confluent-hub install --no-prompt debezium/debezium-connector-postgresql:1.9.7 
-      # downloads the Google BigQuery Sink Connector from confluent hub
-      confluent-hub install --no-prompt wepay/kafka-connect-bigquery:2.4.5
-      # explicitly set the Google Application credentials to service account key.json in the connect container
-      export GOOGLE_APPLICATION_CREDENTIALS=/service account key.json 
+      confluent-hub install --no-prompt debezium/debezium-connector-postgresql:2.0.1  
+      confluent-hub install --no-prompt wepay/kafka-connect-bigquery:2.4.5   
+      export GOOGLE_APPLICATION_CREDENTIALS=/service account key.json
       /etc/confluent/docker/run &
       sleep infinity
 
